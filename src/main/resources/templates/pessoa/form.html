@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:include="layout :: htmlhead"></head>
+    <body>
+        <div class="container">
+            <nav th:replace="layout :: menu">(menu)</nav>
+            <div class="border border-dark">
+              <form th:action="@{/pessoa/(form)}" th:object="${pessoa}" action="#" method="post">
+                    <input type="hidden" id="txtid" th:field="*{id}" />               
+                    <div class="form-group">
+                        <label for="txtnome">Nome</label>
+                         <input type="text" th:field="*{nome}" class="form-control" id="txtnome" placeholder="Nome">
+                    </div>
+                     <div class="form-group">
+                    	<label for="txtcpf">CPF</label>
+                         <input type="text" th:field="*{CPF}" class="form-control" id="txtcpf" placeholder="CPF">
+                    </div>
+                    <div class="form-group">
+                    	<label for="txtrg">RG</label>
+                         <input type="text" th:field="*{RG}" class="form-control" id="txtrg" placeholder="RG">
+                    </div>
+                    <div class="form-group">                 
+                        <label for="slcsexo">Sexo</label>
+                        <select class="form-control" id="slcsexo" th:field="*{sexo}">
+                            <option th:value="Masculino">Masculino</option>
+                            <option th:value="Feminino">Feminino</option>
+                            <option th:value="Outro">Outro</option>
+                        </select>
+                    </div>
+                    	<label for="txtendereco">Endereço</label>
+                         <input type="text" th:field="*{endereco}" class="form-control" id="txtendereco" placeholder="Endereco">
+                    </div>
+					
+                    <div class="form-group">
+                        <label for="slcsexo">Data Nascimento</label>
+                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" 
+                                th:field="*{dataNascimento}"/>
+                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>    
+            </div>
+        </div>
+        <div th:include="layout :: footer" id="footer">(footer)</div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker({
+                    format:"DD/MM/YYYY HH:mm"                   
+                });
+            });
+        </script>
+    </body>
+</html>

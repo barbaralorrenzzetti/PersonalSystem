@@ -12,6 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Pessoa {
@@ -25,8 +29,18 @@ public class Pessoa {
 	private String RG;
 	private String sexo;
 	private String endereco;
-	private Date nascimento;
+	@Temporal(value=TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private Date dataNascimento = new Date();
 	
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
 	@ManyToMany(cascade= {CascadeType.MERGE,CascadeType.REFRESH})
     @JoinColumn(name="matricula_id")
 	List<Matricula> listaMatricula = new ArrayList<Matricula>();
@@ -79,12 +93,13 @@ public class Pessoa {
 		this.endereco = endereco;
 	}
 
-	public Date getNascimento() {
-		return nascimento;
+	public List<Matricula> getListaMatricula() {
+		return listaMatricula;
 	}
 
-	public void setNascimento(Date nascimento) {
-		this.nascimento = nascimento;
+	public void setListaMatricula(List<Matricula> listaMatricula) {
+		this.listaMatricula = listaMatricula;
 	}
+
 
 }
