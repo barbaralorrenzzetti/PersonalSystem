@@ -32,6 +32,7 @@ public class Pessoa {
 	@Temporal(value=TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento = new Date();
+	private String Tipo;
 	
 	public Date getDataNascimento() {
 		return dataNascimento;
@@ -99,6 +100,14 @@ public class Pessoa {
 
 	public void setListaMatricula(List<Matricula> listaMatricula) {
 		this.listaMatricula = listaMatricula;
+	}
+
+	public String getTipo() {
+		return Tipo;
+	}
+
+	public void setTipo(String tipo) {
+		Tipo = tipo;
 	}
 
 

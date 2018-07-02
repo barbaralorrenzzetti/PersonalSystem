@@ -7,6 +7,14 @@
             <div class="border border-dark">
               <form th:action="@{/pessoa/(form)}" th:object="${pessoa}" action="#" method="post">
                     <input type="hidden" id="txtid" th:field="*{id}" />               
+                    <div class="form-group">                 
+                        <label for="slctipo">Tipo</label>
+                        <select class="form-control" id="slctipo" th:field="*{tipo}">
+                            <option th:value="Aluno">Aluno</option>
+                            <option th:value="Funcionário">Funcionario</option>
+                            <option th:value="Professor">Professor</option>
+                        </select>
+                    </div>                  
                     <div class="form-group">
                         <label for="txtnome">Nome</label>
                          <input type="text" th:field="*{nome}" class="form-control" id="txtnome" placeholder="Nome">
