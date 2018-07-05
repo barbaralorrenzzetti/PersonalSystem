@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:include="layout :: htmlhead"></head>
+    <body>
+        <div class="container">
+            <nav th:replace="layout :: menu">(menu)</nav>
+            <div class="border border-dark">
+              <form th:action="@{/treino/(form)}" th:object="${treino}" action="#" method="post">
+                    <input type="hidden" id="txtid" th:field="${treino.Id}" />               
+                                      
+                    <div class="form-group">
+                        <label for="txtTreino">Nome Treino</label>
+                         <input type="text" th:field="${treino.Nome}" class="form-control" id="txtNome" placeholder="Nome Treino">
+                    </div>   
+                    
+                    <div class="form-group">
+                        <label for="txtobjetivo">Objetivo</label>
+                         <input type="text" th:field="${treino.Objetivo}" class="form-control" id="txtObjetivo" placeholder="Objetivo">
+                    </div>                
+           			<div class="form-group">
+                        <label for="slcdataInicio">Data Inicio</label>
+                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" 
+                                th:field="${treino.Inicio}"/>
+                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                                    
+           			<div class="form-group">
+                        <label for="slcdataFim">Data Fim</label>
+                        <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" 
+                                th:field="${treino.Fim}"/>
+                            <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>              
+                    <div class="form-group">
+                        <label for="txtobservacao">Observacao</label>
+                         <input type="text" th:field="${treino.Observacao}" class="form-control" id="txtobservacao" placeholder="Observacao">
+                    </div> 
+                    
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>    
+            </div>
+        </div>
+        <div th:include="layout :: footer" id="footer">(footer)</div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker({
+                    format:"DD/MM/YYYY"                   
+                });
+                $('#datetimepicker2').datetimepicker({
+                    format:"DD/MM/YYYY"                   
+                });
+            });
+        </script>
+    </body>
+</html>

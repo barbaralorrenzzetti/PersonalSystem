@@ -17,11 +17,11 @@ import javax.persistence.ManyToMany;
 public class Plano {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id;
+	private long Id;
 	@Column(length=10000)
-	private String NomePlano;
-	private float PrecoPlano;
-	private String MetodoCobranca;
+	private String nomePlano;
+	private float precoPlano;
+	private String metodoCobranca;
 	
 	@ManyToMany(cascade= {CascadeType.MERGE,CascadeType.REFRESH})
     @JoinColumn(name="matricula_id")
@@ -29,28 +29,28 @@ public class Plano {
     
 	
 	public long getId() {
-		return id;
+		return Id;
 	}
 	public void setId(long id) {
-		this.id = id;
+		this.Id = id;
 	}
 	public String getNomePlano() {
-		return NomePlano;
+		return nomePlano;
 	}
 	public void setNomePlano(String nomePlano) {
-		NomePlano = nomePlano;
+		nomePlano = nomePlano;
 	}
 	public float getPrecoPlano() {
-		return PrecoPlano;
+		return precoPlano;
 	}
 	public void setPrecoPlano(float precoPlano) {
-		PrecoPlano = precoPlano;
+		precoPlano = precoPlano;
 	}
 	public String getMetodoCobranca() {
-		return MetodoCobranca;
+		return metodoCobranca;
 	}
 	public void setMetodoCobranca(String metodoCobranca) {
-		MetodoCobranca = metodoCobranca;
+		metodoCobranca = metodoCobranca;
 	}
 	
 

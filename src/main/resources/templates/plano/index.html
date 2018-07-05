@@ -18,11 +18,11 @@
                     <tbody>
                         <tr scope="row" th:each="umpac : ${listapac}">
                             <td th:text="${umpac.nomePlano}"></td>
-                            <td th:text="${umpac.preçoPlano}"></td>
+                            <td th:text="${umpac.precoPlano}"></td>
                             <td th:text="${umpac.metodoCobranca}"></td>
                             <td>
-                                <a href="form.html" th:href="@{'/plano/alterar/' + ${umpac.id}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
-                                <a href="#" class="btn btn-warning btn-lg" role="button" data-toggle="modal" data-target="#confirmaExclusao" th:data-id="${umpac.id}">Excluir</a>
+                                <a href="form.html" th:href="@{'/plano/alterar/' + ${umpac.Id}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
+                                <a href="#" class="btn btn-warning btn-lg" role="button" data-toggle="modal" data-target="#confirmaExclusao" th:data-id="${umpac.Id}">Excluir</a>
                             </td>
                         </tr>
                     </tbody>
@@ -55,7 +55,7 @@
                   var button = $(event.relatedTarget)
                   var recipient = button.data('id')
                   var modal = $(this)
-                  modal.find('#btnConf').attr("href","/pessoa/remover/" + recipient)
+                  modal.find('#btnConf').attr("href","/plano/remover/" + recipient)
                 })
            /*]]>*/
         </script> 

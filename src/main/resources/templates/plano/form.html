@@ -6,19 +6,19 @@
             <nav th:replace="layout :: menu">(menu)</nav>
             <div class="border border-dark">
               <form th:action="@{/plano/(form)}" th:object="${plano}" action="#" method="post">
-                    <input type="hidden" id="txtid" th:field="*{id}" />               
+                    <input type="hidden" id="txtid" th:field="${plano.Id}" />               
                      </div>                  
                     <div class="form-group">
-                        <label for="txtnomePlano">nomePlano</label>
-                         <input type="text" th:field="*{NomePlano}" class="form-control" id="txtnomePlano" placeholder="nomePlano">
+                        <label for="txtnomePlano">Nome Plano</label>
+                         <input type="text" th:field="${plano.nomePlano}" class="form-control" id="txtnomePlano" placeholder="Nome Plano">
                     </div>   
                     <div class="form-group">
-                        <label for="txtpreçoPlano">PreçoPlano</label>
-                         <input type="text" th:field="*{PrecoPlano}" class="form-control" id="txtpreçoPlano" placeholder="PreçoPlano">
+                        <label for="txtpreï¿½oPlano">PreÃ§o Plano</label>
+                         <input type="text" th:field="${plano.precoPlano}" class="form-control" id="txtpreï¿½oPlano" placeholder="Preï¿½oPlano">
                     </div>                
            			<div class="form-group">                 
-                        <label for="slcmetodoCobrança">MetodoCobrança</label>
-                        <select class="form-control" id="slctipo" th:field="*{MetodoCobranca}">
+                        <label for="slcmetodoCobranca">Metodo CobranÃ§a</label>
+                        <select class="form-control" id="slctipo" th:field="${plano.metodoCobranca}">
                             <option th:value="Mensal">Mensal</option>
                             <option th:value="Semestral">Semestral</option>
                             <option th:value="Anual">Anual</option>

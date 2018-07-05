@@ -22,13 +22,13 @@ public class Pessoa {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	
-	private long id;
+	private long Id;
 	@Column(length=10000)
 	private String Nome;
 	private String CPF;
 	private String RG;
-	private String sexo;
-	private String endereco;
+	private String Sexo;
+	private String Endereco;
 	@Temporal(value=TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento = new Date();
@@ -47,11 +47,11 @@ public class Pessoa {
 	List<Matricula> listaMatricula = new ArrayList<Matricula>();
 
 	public long getId() {
-		return id;
+		return Id;
 	}
 
 	public void setId(long id) {
-		this.id = id;
+		this.Id = id;
 	}
 
 	public String getNome() {
@@ -79,19 +79,19 @@ public class Pessoa {
 	}
 
 	public String getSexo() {
-		return sexo;
+		return Sexo;
 	}
 
 	public void setSexo(String sexo) {
-		this.sexo = sexo;
+		this.Sexo = sexo;
 	}
 
 	public String getEndereco() {
-		return endereco;
+		return Endereco;
 	}
 
 	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+		this.Endereco = endereco;
 	}
 
 	public List<Matricula> getListaMatricula() {
