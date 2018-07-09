@@ -9,6 +9,7 @@
                 <table class="table">
                     <thead class="thead-light"> 
                         <tr>
+                            <th scope="col">Matrícula</th>
                             <th scope="col">Nome Treino</th>
                             <th scope="col">Objetivo</th>
                             <th scope="col">Inicio</th>
@@ -19,6 +20,7 @@
                     </thead>
                     <tbody>
                         <tr scope="row" th:each="umpac : ${listapac}">
+                        	<td th:text="${umpac.Matricula}"></td>
                             <td th:text="${umpac.Nome}"></td>
                             <td th:text="${umpac.Objetivo}"></td>
                             <td th:text="${umpac.Inicio}"></td>

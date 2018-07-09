@@ -23,9 +23,7 @@ public class Plano {
 	private float precoPlano;
 	private String metodoCobranca;
 	
-	@ManyToMany(cascade= {CascadeType.MERGE,CascadeType.REFRESH})
-    @JoinColumn(name="matricula_id")
-	List<Matricula> listaMatricula = new ArrayList<Matricula>();
+
     
 	
 	public long getId() {
@@ -38,19 +36,19 @@ public class Plano {
 		return nomePlano;
 	}
 	public void setNomePlano(String nomePlano) {
-		nomePlano = nomePlano;
+		this.nomePlano = nomePlano;
 	}
 	public float getPrecoPlano() {
 		return precoPlano;
 	}
 	public void setPrecoPlano(float precoPlano) {
-		precoPlano = precoPlano;
+		this.precoPlano = precoPlano;
 	}
 	public String getMetodoCobranca() {
 		return metodoCobranca;
 	}
 	public void setMetodoCobranca(String metodoCobranca) {
-		metodoCobranca = metodoCobranca;
+		this.metodoCobranca = metodoCobranca;
 	}
 	
 

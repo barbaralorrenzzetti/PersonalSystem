@@ -7,7 +7,12 @@
             <div class="border border-dark">
               <form th:action="@{/treino/(form)}" th:object="${treino}" action="#" method="post">
                     <input type="hidden" id="txtid" th:field="${treino.Id}" />               
-                                      
+                     <div class="form-group">
+                        <label for="slcMatricula">Matricula</label>
+                        <select class="form-control" id="slcmatricula" th:field="*{matricula}">
+                            <option th:each="umamatricula : ${listaMatricula}" th:value="${umamatricula.id}" th:text="${umamatricula.aluno.Nome}"></option>
+                        </select>
+                    </div>                 
                     <div class="form-group">
                         <label for="txtTreino">Nome Treino</label>
                          <input type="text" th:field="${treino.Nome}" class="form-control" id="txtNome" placeholder="Nome Treino">

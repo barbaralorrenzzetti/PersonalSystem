@@ -32,7 +32,7 @@ public class Treino {
 	private Date Inicio;
 	private Date Fim;
 
-	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH})
+	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH}, optional=true)
 	private Matricula matricula = new Matricula();
 
 
