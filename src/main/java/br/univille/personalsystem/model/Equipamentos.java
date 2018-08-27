@@ -20,12 +20,8 @@ public class Equipamentos {
 	private long id;
 	@Column(length=10000)
 	private String Nome;
-	private int Repeticao;
-	private String Exercicios;
-	
-	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH})
-	private Exercicios exercicios = new Exercicios();
-	
+
+
 	
 	public String getNome() {
 		return Nome;
@@ -33,17 +29,11 @@ public class Equipamentos {
 	public void setNome(String nome) {
 		Nome = nome;
 	}
-	public int getRepeticao() {
-		return Repeticao;
+		public long getId() {
+		return id;
 	}
-	public void setRepeticao(int repeticao) {
-		Repeticao = repeticao;
+
+	public void setId(long id) {
+		this.id = id;
 	}
-	public String getExercicios() {
-		return Exercicios;
-	}
-	public void setExercicios(String exercicios) {
-		Exercicios = exercicios;
-	}
-	
 }
