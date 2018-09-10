@@ -15,10 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.univille.personalsystem.model.Equipamentos;
-import br.univille.personalsystem.model.Exercicios;
-import br.univille.personalsystem.model.Pessoa;
 import br.univille.personalsystem.repository.EquipamentosRepository;
-import br.univille.personalsystem.repository.PessoaRepository;
 
 
 @Controller

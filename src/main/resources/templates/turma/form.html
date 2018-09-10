@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: htmlhead"></head>
+<body>
+	<div class="container">
+		<nav th:replace="layout :: menu">(menu)</nav>
+		<div class="border border-dark">
+			<form th:action="@{/turma/(form)}" th:object="${turma}" action="#"
+				method="post">
+				<input type="hidden" id="txtid" th:field="${turma.Id}" />
+				<div class="form-group">
+					<label for="slcMatricula">Matricula</label> <select
+						class="form-control" id="slcmatricula" th:field="*{matricula}">
+						<option th:each="umamatricula : ${listaMatricula}"
+							th:value="${umamatricula.id}"
+							th:text="${umamatricula.aluno.Nome}"></option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="txtTreino">Nome </label> <input type="text"
+						th:field="${turma.Nome}" class="form-control" id="txtNome"
+						placeholder="Nome Turma">
+				</div>
+				<label for="slcPeriodo">Periodo</label> <select
+					class="form-control" id="slcPeriodo" th:field="*{Periodo}">
+					<option th:value="Matutino">Matutino</option>
+					<option th:value="Vespertino">Vespertino</option>
+					<option th:value="Noturno">Noturno</option>
+				</select>
+				<label for="slcDiaTreino">Dia Treino</label> <select
+					class="form-control" id="slcDiaTreino" th:field="*{DiaTreino}">
+					<option th:value="Segundafeira_Quartafeira">Segunda-feira e
+						Quarta-feira</option>
+					<option th:value="Terçafeira_Quintafeira">Terça-feira e
+						Quinta-feira</option>
+					<option th:value="Segundafeira_Sextafeira">Segunda-feira a
+						Sexta-feira</option>
+				</select>
+				<label for="slcExtra">Extra</label> <select class="form-control"
+			id="slcExtra" th:field="${turma.Extra}">
+			<option th:value="Nenhum">Nenhum</option>
+			<option th:value="Sextafeira">Sexta-feira</option>
+		</select>
+		<button type="submit" class="btn btn-primary">Enviar</button>
+		</div>
+	</form>
+	</div>
+	</div>
+	
+        </script>
+</body>
+</html>
