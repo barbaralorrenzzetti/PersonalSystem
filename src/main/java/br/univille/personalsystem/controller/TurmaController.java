@@ -30,7 +30,7 @@ public class TurmaController {
 	public ModelAndView index() {
 		List<Turma> listaTurma = this.turmaRepository.findAll();
        
-        return new ModelAndView("turma/index","listapac",listaTurma);
+        return new ModelAndView("turma/index","listatur",listaTurma);
 		
 	}
     @GetMapping("/novo")

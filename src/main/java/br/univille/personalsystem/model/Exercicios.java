@@ -19,7 +19,6 @@ public class Exercicios {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	@Column(length=10000)
-	private String Treino;
 	private int Duracao;
 	private int Repeticao;
 	private int Carga;
@@ -38,12 +37,6 @@ public class Exercicios {
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	public String getTreino() {
-		return Treino;
-	}
-	public void setTreino(String treino) {
-		Treino = treino;
 	}
 	public int getDuracao() {
 		return Duracao;

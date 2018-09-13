@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:include="layout :: htmlhead"></head>
+    <body>
+        <div class="container">
+            <nav th:replace="layout :: menu">(menu)</nav>
+            <a href="form.html" th:href="@{/exercicios/novo}" class="btn btn-primary btn-lg" role="button">Novo</a>
+            <div class="border border-dark">
+                <table class="table">
+                    <thead class="thead-light"> 
+                        <tr>
+                            <th scope="col">Tipo Exercicio</th>
+                            <th scope="col">Duração</th>
+                            <th scope="col">Repetição</th>
+                            <th scope="col">Carga</th>
+                            <th scope="col">Intervalo</th>
+                            <th scope="col">Ordem</th>
+                            <th scope="col">Equipamentos</th>
+                            
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr scope="row" th:each="umexer : ${listaexer}">
+                        	<td th:text="${umexer.tipoExercicios.nome}"></td>
+                            <td th:text="${umexer.duracao.nome}"></td>
+                            <td th:text="${umexer.repeticao.nome}"></td>
+                            <td th:text="${umexer.carga.nome}"></td>
+                            <td th:text="${umexer.intervalo.nome}"></td>
+                            <td th:text="${umexer.ordem.nome}"></td>
+                            <td th:text="${umexer.equipamentos.nome}"></td>
+                            <td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div th:include="layout :: footer" id="footer">(footer)</div>
+    </body>
+</html>
