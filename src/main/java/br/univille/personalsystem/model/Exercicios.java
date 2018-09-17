@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Exercicios {
@@ -19,54 +20,82 @@ public class Exercicios {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	@Column(length=10000)
-	private int Duracao;
-	private int Repeticao;
-	private int Carga;
-	private int Intervalo;
-	private int Ordem;
+	private int duracao;
+	private int repeticao;
+	private int carga;
+	private int intervalo;
+	private int ordem;
 	
 	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH})
 	private TipoExercicios tipoExercicios = new TipoExercicios();
 	
-	@ManyToMany(cascade= {CascadeType.MERGE,CascadeType.REFRESH})
+	@OneToMany(cascade={CascadeType.MERGE,CascadeType.REFRESH},orphanRemoval=true)
     @JoinColumn(name="equipamentos_id")
 	List<Equipamentos> listaEquipamentos = new ArrayList<Equipamentos>();
-	
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public int getDuracao() {
-		return Duracao;
+		return duracao;
 	}
+
 	public void setDuracao(int duracao) {
-		Duracao = duracao;
+		this.duracao = duracao;
 	}
+
 	public int getRepeticao() {
-		return Repeticao;
+		return repeticao;
 	}
+
 	public void setRepeticao(int repeticao) {
-		Repeticao = repeticao;
+		this.repeticao = repeticao;
 	}
+
 	public int getCarga() {
-		return Carga;
+		return carga;
 	}
+
 	public void setCarga(int carga) {
-		Carga = carga;
+		this.carga = carga;
 	}
+
 	public int getIntervalo() {
-		return Intervalo;
+		return intervalo;
 	}
+
 	public void setIntervalo(int intervalo) {
-		Intervalo = intervalo;
+		this.intervalo = intervalo;
 	}
+
 	public int getOrdem() {
-		return Ordem;
+		return ordem;
 	}
+
 	public void setOrdem(int ordem) {
-		Ordem = ordem;
+		this.ordem = ordem;
+	}
+
+	public TipoExercicios getTipoExercicios() {
+		return tipoExercicios;
+	}
+
+	public void setTipoExercicios(TipoExercicios tipoExercicios) {
+		this.tipoExercicios = tipoExercicios;
+	}
+
+	public List<Equipamentos> getListaEquipamentos() {
+		return listaEquipamentos;
+	}
+
+	public void setListaEquipamentos(List<Equipamentos> listaEquipamentos) {
+		this.listaEquipamentos = listaEquipamentos;
 	}
 	
+
 }

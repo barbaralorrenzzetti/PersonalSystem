@@ -5,49 +5,44 @@
         <div class="container">
             <nav th:replace="layout :: menu">(menu)</nav>
             <div class="border border-dark">
-                <form th:action="@{/consulta}"  action="#" method="post">
-                    <div th:object="${consulta}">                   
-                        <input type="hidden" id="txtid" th:field="${consulta.id}" />
+                <form th:action="@{/exercicios}"  action="#" method="post">
+                    <div th:object="${exercicios}">                   
+                        <input type="hidden" id="txtid" th:field="${exercicios.id}" />
                         <div class="form-group">
-                            <label for="slcMedico">Tipo Exercicio</label>
-                            <select class="form-control" id="slcTipoExercicios" th:field="${exercicios.TipoExercicios}">
-                                <option th:each="umTipoExercicios : ${listaTipoExercicios}" th:value="${umTipoExercicios.id}" th:text="${umTipoExercicios.nome}"></option>
+                            <label for="slcTipoExercicios">Tipo Exercicio</label>
+                            <select class="form-control" id="slcTipoExercicios" th:field="${exercicios.tipoExercicios}">
+                                <option th:each="umTipoExercicios : ${listaTipoExercicios}" th:value="${umTipoExercicios.id}" th:text="${umTipoExercicios.Nome}"></option>
                             </select>
                         </div>
                         <div class="form-group">
-                        <label for="txtduracao">Duração</label>
-                         <input type="text" th:field="${exercicios.Duracao}" class="form-control" id="txtDuracao" placeholder="Duracao">
+                        <label for="txtduracao">DuraÃ§Ã£o</label>
+                         <input type="text" th:field="${exercicios.duracao}" class="form-control" id="txtDuracao" placeholder="Duracao">
                     </div>
                         <div class="form-group">
-                        <label for="txtrepeticao">Repetição</label>
-                         <input type="text" th:field="${exercicios.Repeticao}" class="form-control" id="txtRepeticao" placeholder="Repeticao">
+                        <label for="txtrepeticao">RepetiÃ§Ã£o</label>
+                         <input type="text" th:field="${exercicios.repeticao}" class="form-control" id="txtRepeticao" placeholder="Repeticao">
                     </div>
                     	<div class="form-group">
                         <label for="txtcarga">Carga</label>
-                         <input type="text" th:field="${exercicios.Carga}" class="form-control" id="txtCarga" placeholder="Carga">
+                         <input type="text" th:field="${exercicios.carga}" class="form-control" id="txtCarga" placeholder="Carga">
                     </div>
                     	<div class="form-group">
                         <label for="txtintervalo">Intervalo</label>
-                         <input type="text" th:field="${exercicios.Intervalo}" class="form-control" id="txtIntervalo" placeholder="Intervalo">
+                         <input type="text" th:field="${exercicios.intervalo}" class="form-control" id="txtIntervalo" placeholder="Intervalo">
                     </div>
-                    	<div class="form-group">
+                    <div class="form-group">
                         <label for="txtordem">Ordem</label>
-                         <input type="text" th:field="${exercicios.Ordem}" class="form-control" id="txtOrdem" placeholder="Ordem">
-                    </div>                             
-                        <div class="form-group">
-                            <label for="slcEquipamentos">Equipamentos</label>
-                            <select class="form-control" id="slcEquipamentos" th:field="${exercicios.equipamentos}">
-                                <option th:each="umEquipamentos : ${listaEquipamentos}" th:value="${umEquipamentos.id}" th:text="${umEquipamentos.nome}"></option>
-                            </select>
-                        </div>
-                        <div class="card">
+                         <input type="text" th:field="${exercicios.ordem}" class="form-control" id="txtOrdem" placeholder="Ordem">
+                    </div>
+                    	
+                    <div class="card">
                         <div class="card-header">Equipamentos utilizados</div>
                         <div class="card-body">
                             <div class="container" th:object="${novoequiutilizado}">
                               <div class="row">
                                 <div class="col-sm">
-                                  <select class="form-control" id="slcEquipamentos" th:field="${equipamentos.equipamentos}">
-                                    <option th:each="umProc : ${listaequipamentos}" th:value="${umEqui.id}" th:text="${umEqui.descricao}"></option>
+                                  <select class="form-control" id="slcEquipamentos" th:value="${novoequiutilizado}" name="novoequiutilizado">
+                                    <option th:each="umEqui : ${listaEquipamentos}" th:value="${umEqui.id}" th:text="${umEqui.nome}"></option>
                                   </select>
                                 </div>
                                     <button type="submit" name="insertEquip" class="btn btn-primary">Inserir Equipamento</button>
@@ -55,7 +50,7 @@
                               </div>
                             </div>
                             <br> 
-                                                        <table class="table">
+                            <table class="table">
                                 <thead class="thead-light"> 
                                     <tr>
                                         <th scope="col">Equipamentos</th>
@@ -63,12 +58,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr scope="row" th:each="procreali, stat : ${exercicios.listaEquipamentos}">
-                                        <input type="hidden" th:field="${exercicios.listaEquipamentos[__${stat.index}__].equipamentos}"/>
-                                        <td th:text="${procreali.procedimento.descricao}"></td>
-                                        <td th:text="${procreali.valor}"></td>
+                                    <tr scope="row" th:each="equip, stat : ${exercicios.listaEquipamentos}">
+                                        <input type="hidden" th:field="${exercicios.listaEquipamentos[__${stat.index}__].id}"/>
+                                        <input type="hidden" th:field="${exercicios.listaEquipamentos[__${stat.index}__].nome}"/>
+                                        <td th:text="${equip.nome}"></td>
                                         <td>
-                                            <button type="submit" name="removeproc" th:value="__${stat.index}__" class="btn btn-primary">Remover</button>
+                                            <button type="submit" name="removeequip" th:value="__${stat.index}__" class="btn btn-primary">Remover</button>
                                         </td>
                                     </tr>
                                 </tbody>

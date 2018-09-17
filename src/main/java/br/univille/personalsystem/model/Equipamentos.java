@@ -19,17 +19,17 @@ public class Equipamentos {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	@Column(length=10000)
-	private String Nome;
+	private String nome;
 
 
 	
 	public String getNome() {
-		return Nome;
+		return nome;
 	}
 	public void setNome(String nome) {
-		Nome = nome;
+		this.nome = nome;
 	}
-		public long getId() {
+	public long getId() {
 		return id;
 	}
 
