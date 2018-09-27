@@ -34,6 +34,8 @@ public class Pessoa {
 	private Date dataNascimento = new Date();
 	private String Tipo;
 	
+
+	
 	public Date getDataNascimento() {
 		return dataNascimento;
 	}

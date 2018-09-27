@@ -15,7 +15,7 @@
                             <option th:each="umapessoa : ${listapessoa}" th:value="${umapessoa.id}" th:text="${umapessoa.aluno.Nome}"></option>
                         </select>
                     </div>                 
-                        <label for="slcinicioContrato">InÃ­cio contrato</label>
+                        <label for="slcinicioContrato">Início contrato</label>
                         <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" 
                                 th:field="${matricula.inicioContrato}"/>
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="slcterminoContrato">TÃ©rmino contrato</label>
+                        <label for="slcterminoContrato">Término contrato</label>
                         <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" 
                                 th:field="${matricula.terminoContrato}"/>

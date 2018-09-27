@@ -4,30 +4,42 @@
     <body>
         <div class="container">
             <nav th:replace="layout :: menu">(menu)</nav>
-            <a href="form.html" th:href="@{/matricula/novo}" class="btn btn-primary btn-lg" role="button">Novo</a>
+            <a href="form.html" th:href="@{/exercicios/novo}" class="btn btn-primary btn-lg" role="button">Novo</a>
             <div class="border border-dark">
                 <table class="table">
                     <thead class="thead-light"> 
                         <tr>
-                            <th scope="col">Aluno</th>
-                            <th scope="col">Inicio contrato</th>
-                            <th scope="col">Término contrato</th>
+                            <th scope="col">Tipo Exercicio</th>
+                            <th scope="col">Duração</th>
+                            <th scope="col">Repetição</th>
+                            <th scope="col">Carga</th>
+                            <th scope="col">Intervalo</th>
+                            <th scope="col">Ordem</th>
+                            
+                            
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr scope="row" th:each="ummat : ${listamat}">
-                        	<td th:text="${ummat.aluno.Nome}"></td>
-                            <td th:text="${ummat.inicioContrato}"></td>
-                            <td th:text="${ummat.terminoContrato}"></td>
+                        <tr scope="row" th:each="umexer : ${listaexer}">
+                        	<td th:text="${umexer.tipoExercicios.Nome}"></td>
+                            <td th:text="${umexer.duracao}"></td>
+                            <td th:text="${umexer.repeticao}"></td>
+                            <td th:text="${umexer.carga}"></td>
+                            <td th:text="${umexer.intervalo}"></td>
+                            <td th:text="${umexer.ordem}"></td>
+                            
                             <td>
-                                <a href="form.html" th:href="@{'/matricula/alterar/' + ${ummat.Id}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
-                                <a href="#" class="btn btn-warning btn-lg" role="button" data-toggle="modal" data-target="#confirmaExclusao" th:data-id="${ummat.Id}">Excluir</a>
+                            <td>
+                                <a href="form.html" th:href="@{'/exercicios/alterar/' + ${umexer.id}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
+                                <a href="#" class="btn btn-warning btn-lg" role="button" data-toggle="modal" data-target="#confirmaExclusao" th:data-id="${umexer.id}">Excluir</a>
+                            </td>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-       		 <div class="modal fade" id="confirmaExclusao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="confirmaExclusao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -37,7 +49,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>Confirma a exclusão deste registro?</p>
+                            <p>Confirma a exclusão desta consulta?</p>
                         </div>
                         <div class="modal-footer">
                             <a href="#" class="btn btn-warning btn-lg" id="btnConf" role="button">Sim</a>
@@ -48,13 +60,13 @@
             </div>
         </div>
         <div th:include="layout :: footer" id="footer">(footer)</div>
-    	 <script th:inline="javascript">
+        <script th:inline="javascript">
           /*<![CDATA[*/
                $('#confirmaExclusao').on('show.bs.modal', function (event) {
                   var button = $(event.relatedTarget)
                   var recipient = button.data('id')
                   var modal = $(this)
-                  modal.find('#btnConf').attr("href","/treino/remover/" + recipient)
+                  modal.find('#btnConf').attr("href","/exercicios/remover/" + recipient)
                 })
            /*]]>*/
         </script> 

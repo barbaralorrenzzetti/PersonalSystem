@@ -4,24 +4,21 @@
     <body>
         <div class="container">
             <nav th:replace="layout :: menu">(menu)</nav>
-            <a href="form.html" th:href="@{/matricula/novo}" class="btn btn-primary btn-lg" role="button">Novo</a>
+            <a href="form.html" th:href="@{/equipamentos/novo}" class="btn btn-primary btn-lg" role="button">Novo</a>
             <div class="border border-dark">
                 <table class="table">
                     <thead class="thead-light"> 
                         <tr>
-                            <th scope="col">Aluno</th>
-                            <th scope="col">Inicio contrato</th>
-                            <th scope="col">Término contrato</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr scope="row" th:each="ummat : ${listamat}">
-                        	<td th:text="${ummat.aluno.Nome}"></td>
-                            <td th:text="${ummat.inicioContrato}"></td>
-                            <td th:text="${ummat.terminoContrato}"></td>
+                        <tr scope="row" th:each="umpac : ${listapac}">
+                            <td th:text="${umpac.Nome}"></td>                          
                             <td>
-                                <a href="form.html" th:href="@{'/matricula/alterar/' + ${ummat.Id}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
-                                <a href="#" class="btn btn-warning btn-lg" role="button" data-toggle="modal" data-target="#confirmaExclusao" th:data-id="${ummat.Id}">Excluir</a>
+                                <a href="form.html" th:href="@{'/equipamentos/alterar/' + ${umpac.Id}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
+                                <a href="#" class="btn btn-warning btn-lg" role="button" data-toggle="modal" data-target="#confirmaExclusao" th:data-id="${umpac.Id}">Excluir</a>
                             </td>
                         </tr>
                     </tbody>
@@ -54,7 +51,7 @@
                   var button = $(event.relatedTarget)
                   var recipient = button.data('id')
                   var modal = $(this)
-                  modal.find('#btnConf').attr("href","/treino/remover/" + recipient)
+                  modal.find('#btnConf').attr("href","/equipamentos/remover/" + recipient)
                 })
            /*]]>*/
         </script> 

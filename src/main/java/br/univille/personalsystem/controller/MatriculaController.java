@@ -28,7 +28,7 @@ public class MatriculaController {
 	public ModelAndView index() {
 		List<Matricula> listaMatricula = this.matriculaRepository.findAll();
        
-        return new ModelAndView("matricula/index","listapac",listaMatricula);
+        return new ModelAndView("matricula/index","listamat",listaMatricula);
 		
 	}
     @GetMapping("/novo")

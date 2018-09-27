@@ -4,7 +4,7 @@
     <body>
         <div class="container">
             <nav th:replace="layout :: menu">(menu)</nav>
-            <a href="form.html" th:href="@{/matricula/novo}" class="btn btn-primary btn-lg" role="button">Novo</a>
+            <a href="form.html" th:href="@{/´matricula/novo}" class="btn btn-primary btn-lg" role="button">Novo</a>
             <div class="border border-dark">
                 <table class="table">
                     <thead class="thead-light"> 
@@ -15,13 +15,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr scope="row" th:each="ummat : ${listamat}">
-                        	<td th:text="${ummat.aluno.Nome}"></td>
-                            <td th:text="${ummat.inicioContrato}"></td>
-                            <td th:text="${ummat.terminoContrato}"></td>
+                        <tr scope="row" th:each="umpac : ${listapac}">
+                        	<td th:text="${umpac.Pessoa}"></td>
+                            <td th:text="${umpac.inicioContrato}"></td>
+                            <td th:text="${umpac.terminoContrato}"></td>
                             <td>
-                                <a href="form.html" th:href="@{'/matricula/alterar/' + ${ummat.Id}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
-                                <a href="#" class="btn btn-warning btn-lg" role="button" data-toggle="modal" data-target="#confirmaExclusao" th:data-id="${ummat.Id}">Excluir</a>
+                                <a href="form.html" th:href="@{'/matricula/alterar/' + ${umpac.Id}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
+                                <a href="#" class="btn btn-warning btn-lg" role="button" data-toggle="modal" data-target="#confirmaExclusao" th:data-id="${umpac.Id}">Excluir</a>
                             </td>
                         </tr>
                     </tbody>
