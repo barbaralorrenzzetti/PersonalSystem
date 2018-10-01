@@ -31,7 +31,7 @@ public class PlanoController {
 	public ModelAndView index() {
 		List<Plano> listaPlano = this.planoRepository.findAll();
        
-        return new ModelAndView("plano/index","listapac",listaPlano);
+        return new ModelAndView("plano/index","listapla",listaPlano);
 		
 	}
     @GetMapping("/novo")

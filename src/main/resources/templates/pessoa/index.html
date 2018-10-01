@@ -20,17 +20,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr scope="row" th:each="umpac : ${listapac}">
-                            <td th:text="${umpac.Tipo}"></td>
-                            <td th:text="${umpac.Nome}"></td>
-                            <td th:text="${umpac.CPF}"></td>
-                            <td th:text="${umpac.RG}"></td>
-                            <td th:text="${umpac.Sexo}"></td>
-                            <td th:text="${umpac.Endereco}"></td>
-                            <td th:text="${umpac.dataNascimento}"></td>
+                        <tr scope="row" th:each="umpes : ${listapes}">
+                            <td th:text="${umpes.Tipo}"></td>
+                            <td th:text="${umpes.Nome}"></td>
+                            <td th:text="${umpes.CPF}"></td>
+                            <td th:text="${umpes.RG}"></td>
+                            <td th:text="${umpes.Sexo}"></td>
+                            <td th:text="${umpes.Endereco}"></td>
+                            <td th:text="${umpes.dataNascimento}"></td>
                             <td>
-                                <a href="form.html" th:href="@{'/pessoa/alterar/' + ${umpac.Id}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
-                                <a href="#" class="btn btn-warning btn-lg" role="button" data-toggle="modal" data-target="#confirmaExclusao" th:data-id="${umpac.Id}">Excluir</a>
+                                <a href="form.html" th:href="@{'/pessoa/alterar/' + ${umpes.Id}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
+                                <a href="#" class="btn btn-warning btn-lg" role="button" data-toggle="modal" data-target="#confirmaExclusao" th:data-id="${umpes.Id}">Excluir</a>
                             </td>
                         </tr>
                     </tbody>

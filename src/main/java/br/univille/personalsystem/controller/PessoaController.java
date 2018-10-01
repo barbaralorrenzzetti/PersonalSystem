@@ -30,7 +30,7 @@ public class PessoaController {
 	public ModelAndView index() {
 		List<Pessoa> listaPessoa = this.pessoaRepository.findAll();
        
-        return new ModelAndView("pessoa/index","listapac",listaPessoa);
+        return new ModelAndView("pessoa/index","listapes",listaPessoa);
 		
 	}
     @GetMapping("/novo")

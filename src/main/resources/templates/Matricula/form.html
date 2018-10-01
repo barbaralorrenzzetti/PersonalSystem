@@ -11,8 +11,8 @@
                     <div class="form-group">			
                     <div class="form-group">
                     <label for="slcPessoa">Pessoa</label>
-                        <select class="form-control" id="slcPessoa" th:field="*{pessoa}">
-                            <option th:each="umapessoa : ${listapessoa}" th:value="${umapessoa.id}" th:text="${umapessoa.aluno.Nome}"></option>
+                        <select class="form-control" id="slcPessoa">
+                            <option th:each="umapessoa : ${listaPessoa}" th:value="${umapessoa.id}" th:text="${umapessoa.Nome}"></option>
                         </select>
                     </div>                 
                         <label for="slcinicioContrato">Início contrato</label>

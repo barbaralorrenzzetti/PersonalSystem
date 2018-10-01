@@ -1,5 +1,6 @@
 package br.univille.personalsystem.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -16,14 +17,18 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.univille.personalsystem.model.Matricula;
+import br.univille.personalsystem.model.Pessoa;
 import br.univille.personalsystem.repository.MatriculaRepository;
+import br.univille.personalsystem.repository.PessoaRepository;
 
 @Controller
 @RequestMapping("/matricula")
 public class MatriculaController {
 	@Autowired
     private MatriculaRepository matriculaRepository;
-
+	@Autowired
+    private PessoaRepository pessoaRepository;
+	
 	@GetMapping("")
 	public ModelAndView index() {
 		List<Matricula> listaMatricula = this.matriculaRepository.findAll();
@@ -32,8 +37,10 @@ public class MatriculaController {
 		
 	}
     @GetMapping("/novo")
-    public String createForm(@ModelAttribute Matricula matricula) {
-    	return "matricula/form";
+    public ModelAndView createForm(@ModelAttribute Matricula matricula) {
+    	List<Pessoa> listaPessoa = pessoaRepository.findAll();
+    	
+        return new ModelAndView("matricula/form","listaPessoa",listaPessoa);
     }
     @PostMapping(params="form")
     public ModelAndView save(@Valid Matricula matricula, BindingResult result, RedirectAttributes redirect) {        
@@ -41,8 +48,13 @@ public class MatriculaController {
         return new ModelAndView("redirect:/matricula");
     }
     @GetMapping(value="/alterar/{id}")
-    public ModelAndView alterarForm(@PathVariable("id") Matricula matricula) {
-        return new ModelAndView("matricula/form","matricula",matricula);
+    public ModelAndView alterarForm(@PathVariable("id") Pessoa pessoa) {
+    	List<Pessoa> listaPessoa = pessoaRepository.findAll();
+        HashMap<String, Object> dados = new HashMap<String, Object>();
+//        dados.put("matricula",matricula);
+        dados.put("listapessoa",listaPessoa);
+        
+        return new ModelAndView("matricula/form",dados);
     }
     @GetMapping(value="remover/{id}")
     public ModelAndView remover(@PathVariable ("id") Long id, RedirectAttributes redirect) {

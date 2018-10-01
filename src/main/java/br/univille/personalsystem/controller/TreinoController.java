@@ -33,7 +33,7 @@ public class TreinoController {
 	public ModelAndView index() {
 		List<Treino> listaTreino = this.treinoRepository.findAll();
        
-        return new ModelAndView("treino/index","listapac",listaTreino);
+        return new ModelAndView("treino/index","listatre",listaTreino);
 		
 	}
 	@GetMapping("/novo")

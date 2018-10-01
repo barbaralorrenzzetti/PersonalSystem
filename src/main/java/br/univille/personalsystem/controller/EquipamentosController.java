@@ -28,7 +28,7 @@ public class EquipamentosController {
 	public ModelAndView index() {
 		List<Equipamentos> listaEquipamentos = this.equipamentosRepository.findAll();
        
-        return new ModelAndView("equipamentos/index","listapac",listaEquipamentos);
+        return new ModelAndView("equipamentos/index","listaequi",listaEquipamentos);
 		
 	}
     @GetMapping("/novo")

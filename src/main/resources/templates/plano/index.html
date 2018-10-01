@@ -16,13 +16,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr scope="row" th:each="umpac : ${listapac}">
-                            <td th:text="${umpac.nomePlano}"></td>
-                            <td th:text="${umpac.precoPlano}"></td>
-                            <td th:text="${umpac.metodoCobranca}"></td>
+                        <tr scope="row" th:each="umpla : ${listapla}">
+                            <td th:text="${umpla.nomePlano}"></td>
+                            <td th:text="${umpla.precoPlano}"></td>
+                            <td th:text="${umpla.metodoCobranca}"></td>
                             <td>
-                                <a href="form.html" th:href="@{'/plano/alterar/' + ${umpac.Id}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
-                                <a href="#" class="btn btn-warning btn-lg" role="button" data-toggle="modal" data-target="#confirmaExclusao" th:data-id="${umpac.Id}">Excluir</a>
+                                <a href="form.html" th:href="@{'/plano/alterar/' + ${umpla.Id}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
+                                <a href="#" class="btn btn-warning btn-lg" role="button" data-toggle="modal" data-target="#confirmaExclusao" th:data-id="${umpla.Id}">Excluir</a>
                             </td>
                         </tr>
                     </tbody>

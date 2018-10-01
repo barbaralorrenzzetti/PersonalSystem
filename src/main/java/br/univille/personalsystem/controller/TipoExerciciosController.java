@@ -28,7 +28,7 @@ public class TipoExerciciosController {
 	public ModelAndView index() {
 		List<TipoExercicios> listaTipoExercicios = this.tipoExerciciosRepository.findAll();
        
-        return new ModelAndView("tipoExercicios/index","listapac",listaTipoExercicios);
+        return new ModelAndView("tipoExercicios/index","listatex",listaTipoExercicios);
 		
 	}
     @GetMapping("/novo")
