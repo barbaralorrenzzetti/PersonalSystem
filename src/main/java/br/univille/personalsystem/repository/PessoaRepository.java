@@ -10,4 +10,6 @@ import br.univille.personalsystem.model.Pessoa;
 
 @Repository
 public interface PessoaRepository extends JpaRepository<Pessoa, Long>{
+	
+	List <Pessoa> findByTipo (String tipo);
 }

@@ -38,7 +38,7 @@ public class MatriculaController {
 	}
     @GetMapping("/novo")
     public ModelAndView createForm(@ModelAttribute Matricula matricula) {
-    	List<Pessoa> listaPessoa = pessoaRepository.findAll();
+    	List<Pessoa> listaPessoa = pessoaRepository.findByTipo("Aluno");
     	
         return new ModelAndView("matricula/form","listaPessoa",listaPessoa);
     }
@@ -48,10 +48,10 @@ public class MatriculaController {
         return new ModelAndView("redirect:/matricula");
     }
     @GetMapping(value="/alterar/{id}")
-    public ModelAndView alterarForm(@PathVariable("id") Pessoa pessoa) {
+    public ModelAndView alterarForm(@PathVariable("id") Matricula matricula) {
     	List<Pessoa> listaPessoa = pessoaRepository.findAll();
         HashMap<String, Object> dados = new HashMap<String, Object>();
-//        dados.put("matricula",matricula);
+        dados.put("matricula", matricula);
         dados.put("listapessoa",listaPessoa);
         
         return new ModelAndView("matricula/form",dados);

@@ -32,7 +32,7 @@ public class Pessoa {
 	@Temporal(value=TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento = new Date();
-	private String Tipo;
+	private String tipo;
 	
 
 	
@@ -105,12 +105,14 @@ public class Pessoa {
 	}
 
 	public String getTipo() {
-		return Tipo;
+		return tipo;
 	}
 
 	public void setTipo(String tipo) {
-		Tipo = tipo;
+		this.tipo = tipo;
 	}
+
+	
 
 
 }

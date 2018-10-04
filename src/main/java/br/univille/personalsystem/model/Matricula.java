@@ -17,7 +17,6 @@ public class Matricula {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	@NotNull
-	@Length(min=2, max=1000, message="O tamanho do nome deve ser entre {min} e {max}")
 	private Date InicioContrato;
 	private Date TerminoContrato;
 	private String TipoPlano;

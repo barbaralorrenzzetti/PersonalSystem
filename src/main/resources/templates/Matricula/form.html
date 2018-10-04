@@ -11,7 +11,7 @@
                     <div class="form-group">			
                     <div class="form-group">
                     <label for="slcPessoa">Pessoa</label>
-                        <select class="form-control" id="slcPessoa">
+                        <select class="form-control" id="slcPessoa" th:field="*{aluno}">
                             <option th:each="umapessoa : ${listaPessoa}" th:value="${umapessoa.id}" th:text="${umapessoa.Nome}"></option>
                         </select>
                     </div>                 
